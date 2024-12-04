@@ -21,7 +21,7 @@ export default function AddTrainingSession(props) {
 
     const handleClickOpen = () => {
         setOpen(true);
-        setTraining({  date: null, activity: "", duration: "",customer: props.data._links.self.href, });
+        setTraining({ date: null, activity: "", duration: "", customer: props.data._links.self.href, });
     };
 
     const handleClose = () => {
@@ -39,41 +39,41 @@ export default function AddTrainingSession(props) {
 
     return (
         <>
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <Button variant="outlined" onClick={handleClickOpen}>
-                ADD Training
-            </Button>
-            <Dialog open={open} onClose={handleClose}>
-                <DialogTitle>Add a New Training Session for {props.data.firstname} {props.data.lastname}</DialogTitle>
-                <DialogContent>
-                    <DateTimePicker
-                        margin="dense"
-                        name="date"
-                        label="Date"
-                        value={training.date}
-                        onChange={date => setTraining({ ...training, date })}
-                        fullWidth
-                        variant="standard"
-                    />
-                    <TextField
-                        margin="dense"
-                        name="activity"
-                        label="Activity"
-                        value={training.activity}
-                        onChange={event => setTraining({ ...training, activity: event.target.value })}
-                        fullWidth
-                        variant="standard"
-                    />
-                    <TextField
-                        margin="dense"
-                        name="duration"
-                        label="Duration (mins)"
-                        value={training.duration}
-                        onChange={event => setTraining({ ...training, duration: event.target.value })}
-                        fullWidth
-                        variant="standard"
-                    />
-                  { /* <TextField
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <Button variant="outlined" onClick={handleClickOpen}>
+                    ADD Training
+                </Button>
+                <Dialog open={open} onClose={handleClose}>
+                    <DialogTitle>Add a New Training Session for {props.data.firstname} {props.data.lastname}</DialogTitle>
+                    <DialogContent>
+                        <DateTimePicker
+                            margin="dense"
+                            name="date"
+                            label="Date"
+                            value={training.date}
+                            onChange={date => setTraining({ ...training, date })}
+                            fullWidth
+                            variant="standard"
+                        />
+                        <TextField
+                            margin="dense"
+                            name="activity"
+                            label="Activity"
+                            value={training.activity}
+                            onChange={event => setTraining({ ...training, activity: event.target.value })}
+                            fullWidth
+                            variant="standard"
+                        />
+                        <TextField
+                            margin="dense"
+                            name="duration"
+                            label="Duration (mins)"
+                            value={training.duration}
+                            onChange={event => setTraining({ ...training, duration: event.target.value })}
+                            fullWidth
+                            variant="standard"
+                        />
+                        { /* <TextField
                         margin="dense"
                         name="customer"
                         label="Customer"
@@ -83,12 +83,12 @@ export default function AddTrainingSession(props) {
                         variant="standard"
                         disabled // Disable when you want to prevent editing
                     />*/}
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={handleClose}>Cancel</Button>
-                    <Button onClick={handleSave}>Save</Button>
-                </DialogActions>
-            </Dialog>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={handleClose}>Cancel</Button>
+                        <Button onClick={handleSave}>Save</Button>
+                    </DialogActions>
+                </Dialog>
             </LocalizationProvider>
         </>
     );

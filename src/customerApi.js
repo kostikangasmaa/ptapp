@@ -19,7 +19,7 @@ export function getTrainings() {
 }
 
 export function deleteTrainings(id) {
-    return fetch(import.meta.env.VITE_API_URL3+id, { method: "DELETE" })
+    return fetch(import.meta.env.VITE_API_URL3+"/"+id, { method: "DELETE" })
         .then(response => {
             if (!response.ok)
                 throw new Error("Error in delete" + response.statusText);

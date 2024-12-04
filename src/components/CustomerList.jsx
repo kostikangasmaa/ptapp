@@ -14,13 +14,13 @@ function CustomerList() {
     const [customers, setCustomers] = useState([]);
     const [open, setOpen] = useState(false);
     const [colDefs, setColDefs] = useState([
-        { field: "firstname", filter: true,width: 120 },
-        { field: "lastname", filter: true,width: 120 },
-        { field: "streetaddress", filter: true,width: 140 },
-        { field: "postcode", filter: true,width: 100 },
-        { field: "city", filter: true,width: 120 },
+        { field: "firstname", filter: true, width: 120 },
+        { field: "lastname", filter: true, width: 120 },
+        { field: "streetaddress", filter: true, width: 140 },
+        { field: "postcode", filter: true, width: 100 },
+        { field: "city", filter: true, width: 120 },
         { field: "email", filter: true },
-        { field: "phone", filter: true ,width: 140},
+        { field: "phone", filter: true, width: 140 },
         {
             cellRenderer: params => <Button size="small" color="error" onClick={() => handleDelete(params.data)}>Delete</Button>, width: 120
         },
@@ -37,7 +37,7 @@ function CustomerList() {
     }, []);
 
     const handleFetch = () => {
-            getCustomers()
+        getCustomers()
             .then(data => setCustomers(data._embedded.customers))
             .catch(error => console.error(error))
     };
@@ -59,8 +59,8 @@ function CustomerList() {
 
     return (
         <>
-             <AddCustomer handleFetch={handleFetch}></AddCustomer>
-             <ExportCSV data={customers} filename="customers.csv" />
+            <AddCustomer handleFetch={handleFetch}></AddCustomer>
+            <ExportCSV data={customers} filename="customers.csv" />
             <div
                 className="ag-theme-material" // applying the Data Grid theme
                 style={{ height: 500 }} // the Data Grid will fill the size of the parent container

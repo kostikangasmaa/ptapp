@@ -12,15 +12,15 @@ function TrainingsList() {
     const [trainings, setTrainings] = useState([]);
     const [open, setOpen] = useState(false);
     const [colDefs, setColDefs] = useState([
-        { field: "date", filter: true, valueFormatter: (params) => formatDate(params.value)  },
-        { field: "duration", filter: true,width: 120 },
-        { field: "activity", filter: true,width: 140 },
-        { field: "customer.firstname", filter: true},
-        {field: "customer.lastname", filter: true},
+        { field: "date", filter: true, valueFormatter: (params) => formatDate(params.value) },
+        { field: "duration", filter: true, width: 120 },
+        { field: "activity", filter: true, width: 140 },
+        { field: "customer.firstname", filter: true },
+        { field: "customer.lastname", filter: true },
         {
             cellRenderer: params => <Button size="small" color="error" onClick={() => handleDelete(params.data)}>Delete</Button>, width: 120
         },
-       
+
     ]);
 
     useEffect(() => {
@@ -28,7 +28,7 @@ function TrainingsList() {
     }, []);
 
     const handleFetch = () => {
-            getTrainings()
+        getTrainings()
             .then(data => setTrainings(data))
             .catch(error => console.error(error))
     };
@@ -47,7 +47,7 @@ function TrainingsList() {
     };
 
     const formatDate = (dateString) => {
-        return dayjs(dateString).format('DD.MM.YYYY HH:mm'); // Format as dd.mm.yyyy hh:mm
+        return dayjs(dateString).format('DD.MM.YYYY HH:mm');
     };
 
     return (
@@ -66,7 +66,7 @@ function TrainingsList() {
                 />
                 <Snackbar
                     open={open}
-                    message="Customer deleted"
+                    message="Customer training session deleted"
                     autoHideDuration={3000}
                     onClose={handleClose}
                 />
@@ -74,7 +74,7 @@ function TrainingsList() {
         </>
     );
 
-    
+
 
 }
 

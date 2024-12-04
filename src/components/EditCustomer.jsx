@@ -40,8 +40,8 @@ export default function EditCustomer(props) {
 
     const handleSave = () => {
         updateCustomer(props.data._links.customer.href, customer)
-        .then(()=> props.handleFetch())
-        .catch(err => console.error(err))
+            .then(() => props.handleFetch())
+            .catch(err => console.error(err))
     };
 
     return (
