@@ -8,6 +8,7 @@ import { getCustomers, deleteCustomer } from "../customerApi";
 import EditCustomer from "./EditCustomer";
 import AddCustomer from "./AddCustomer";
 import AddTrainingSession from "./AddTrainingSession"
+import ExportCSV from "./ExportCSV";
 
 function CustomerList() {
     const [customers, setCustomers] = useState([]);
@@ -41,7 +42,7 @@ function CustomerList() {
             .catch(error => console.error(error))
     };
 
-    
+
 
     const handleClose = () => {
         setOpen(false)
@@ -59,6 +60,7 @@ function CustomerList() {
     return (
         <>
              <AddCustomer handleFetch={handleFetch}></AddCustomer>
+             <ExportCSV data={customers} filename="customers.csv" />
             <div
                 className="ag-theme-material" // applying the Data Grid theme
                 style={{ height: 500 }} // the Data Grid will fill the size of the parent container

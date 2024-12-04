@@ -2,7 +2,7 @@ import React from 'react';
 import { CSVLink } from 'react-csv';
 import Button from '@mui/material/Button';
 
-function ExportCSV({ data }) {
+function ExportCSV({data, filename}) {
   const headers = [
     { label: 'First Name', key: 'firstname' },
     { label: 'Last Name', key: 'lastname' },
@@ -14,7 +14,7 @@ function ExportCSV({ data }) {
   ];
 
   return (
-    <CSVLink data={data} headers={headers} filename="customers.csv">
+    <CSVLink data={data} headers={headers} filename={filename}>
       <Button variant="contained" color="primary">Export</Button>
     </CSVLink>
   );

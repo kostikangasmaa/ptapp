@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 import Snackbar from '@mui/material/Snackbar';
 import { deleteTrainings, getTrainings } from "../customerApi";
 import dayjs from "dayjs";
+import ExportCSV from "./ExportCSV"
 
 function TrainingsList() {
     const [trainings, setTrainings] = useState([]);
@@ -51,7 +52,7 @@ function TrainingsList() {
 
     return (
         <>
-            
+            <ExportCSV data={trainings} filename="trainings.csv" />
             <div
                 className="ag-theme-material" // applying the Data Grid theme
                 style={{ height: 500 }} // the Data Grid will fill the size of the parent container
