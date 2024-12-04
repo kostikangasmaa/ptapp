@@ -20,6 +20,7 @@ function App() {
             </Typography>
             <Button color="inherit" component={Link} to="/">Customer List</Button>
             <Button color="inherit" component={Link} to="/trainings">Trainings List</Button>
+            <Button color="inherit" component={Link} to="/export">Export</Button>
           </Toolbar>
         </AppBar>
         <CssBaseline />
